@@ -2,7 +2,11 @@
 login login
 login login
 login
+<<<<<<< HEAD
 login
 login
 login
 regis
+=======
+login
+>>>>>>> parent of 5de355e (commit tam)
