@@ -105,49 +105,29 @@
             color: white;
             transform: scale(1.1);
         }
-        .message {
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 14px;
-            display: none;
-        }
-        .message.error {
-            background-color: #ffdddd;
-            color: #f44336;
-            border: 1px solid #f44336;
-        }
-        .message.success {
-            background-color: #ddffdd;
-            color: #4caf50;
-            border: 1px solid #4caf50;
-        }
     </style>
 </head>
 <body>
     <div class="register-container">
         <h2>Tạo tài khoản</h2>
-        <div id="message" class="message"></div>
-        <form id="registerForm">
-            <div class="input-group">
-                <i class="fas fa-user"></i>
-                <input type="text" id="fullname" placeholder="Họ và tên" required>
-            </div>
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" id="email" placeholder="Địa chỉ Email" required>
-            </div>
-            <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" id="password" placeholder="Mật khẩu" required>
-            </div>
-            <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
-            </div>
-            
-            <button type="submit">Đăng ký ngay</button>
-        </form>
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Họ và tên">
+        </div>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Địa chỉ Email">
+        </div>
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Mật khẩu">
+        </div>
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Nhập lại mật khẩu">
+        </div>
+        
+        <button>Đăng ký ngay</button>
         
         <div class="social-login">
             <p>Hoặc đăng nhập bằng</p>
@@ -158,50 +138,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const fullname = document.getElementById('fullname').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            const messageDiv = document.getElementById('message');
-            
-            // Reset message
-            messageDiv.style.display = 'none';
-            messageDiv.className = 'message';
-            
-            // Validation
-            if (password !== confirmPassword) {
-                messageDiv.textContent = 'Mật khẩu không khớp!';
-                messageDiv.classList.add('error');
-                messageDiv.style.display = 'block';
-                return;
-            }
-            
-            if (password.length < 6) {
-                messageDiv.textContent = 'Mật khẩu phải có ít nhất 6 ký tự!';
-                messageDiv.classList.add('error');
-                messageDiv.style.display = 'block';
-                return;
-            }
-            
-            // Success
-            messageDiv.textContent = 'Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.';
-            messageDiv.classList.add('success');
-            messageDiv.style.display = 'block';
-            
-            // Clear form
-            document.getElementById('registerForm').reset();
-            
-            // Redirect simulation (optional)
-            setTimeout(() => {
-                // window.location.href = 'login.html'; // Create this later if needed
-                console.log('Redirecting to login...');
-            }, 2000);
-        });
-    </script>
 </body>
 </html>
